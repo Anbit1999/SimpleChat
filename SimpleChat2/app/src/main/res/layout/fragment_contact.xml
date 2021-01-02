@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_chat"
+    tools:context=".fragment.MessageFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="20pt"
+        android:layout_margin="5dp"
+        android:hint="Tìm kiếm"
+        android:background="@color/colorWhite"
+        android:id="@+id/search_contact"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/recycle_listcontact"
+        android:layout_below="@+id/search_contact"
+        android:layout_marginTop="55dp"/>
+</RelativeLayout>

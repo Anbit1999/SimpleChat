@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#191919"
+    android:orientation="vertical"
+    tools:context=".ActivityDangky">
+
+    <include android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout"/>
+
+    <Button
+        android:id="@+id/btn_dangky_email"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20pt"
+        android:background="#00A0FB"
+        android:text="Đăng ký bằng Email"
+        android:textColor="#FFFFFF"
+        android:textSize="10pt" />
+
+    <Button
+        android:id="@+id/btn_dangky_sdt"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10pt"
+        android:background="#00A0FB"
+        android:text="Đăng ký bằng số điện thoại"
+        android:textColor="#FFFFFF"
+        android:textSize="10pt" />
+</LinearLayout>

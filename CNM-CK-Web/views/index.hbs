@@ -1,0 +1,306 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link rel='stylesheet' type='text/css' media='screen.' href='main.css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <style>
+    .f {
+      font-size: 50px;
+    }
+  </style>
+  <title>Trang chủ</title>
+</head>
+
+<body>
+  <div style="1080px">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <ul class="navbar-nav">
+        <li class="nav-item active"> <a class="nav-link" href="#" style="font-size: 25px">Simple Chat</a> </li>
+        <li class="nav-item"> <a class="nav-link" style="font-size: 25px" href="#"> Quản lý tài khoản </a> </li>
+        <li class="nav-item"> <a class="nav-link" style="font-size: 25px" href="http://localhost:8000/login"> Đăng xuất </a> </li>
+      </ul>
+    </nav>
+    <div style="width: 25%; height: 1000px;background: #343A40; float: left; padding: 5px;">
+      <div style="float: left; width: 100%;">
+        <div style="float: left; margin-left: 5px;">
+          <input type="text" style="width: 290px" placeholder="Tìm kiếm" class="form-control" id="timKiem">
+        </div>
+        <div style="float: left; margin-left: 5px;">
+          <input type="button" value="Tìm kiếm" style="width: 135px; height: 44px;" class='btn btn-primary' onclick="getUsersByTenTaiKhoan()"/>
+        </div>
+      </div>
+      <h3 style="color: white; margin-left: 10px; margin-top: 60px;" type="button" class="" data-toggle="collapse"
+        data-target="#formThem">Thêm tài khoản</h3>
+      <div id="formThem" class="collapse" style="float: left; padding: 10px;">
+
+        <form onsubmit="event.preventDefault(); addUser();">
+          <div class="form-group row" style="margin-top: 10px;">
+            <label class="col-sm-3 col-form-label" style="color: white; width: 300px;">Tài khoản:</label>
+            <div class="col-sm-9" style="">
+              <input type="text" style="width: 100%;" class="form-control" id="tenTaiKhoan">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label" style="color: white;">Mật khẩu:</label>
+            <div class="col-sm-9">
+              <input type="password" class="form-control" id="matKhau">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label" style="color: white;">Mật khẩu:</label>
+            <div class="col-sm-9">
+              <input type="password" class="form-control" id="nhapLaiMatKhau" placeholder="Nhập lại mật khẩu">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9">
+              <button class="btn btn-primary" style="height: 44px; width: 100%;">Xác nhận</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <div style="width: 75%; height: 70px; float: left; padding: 15px;">
+    <div style="float: left; width: 60px; margin-left: 700px;">
+      <input type="number" value="1" class="form-control" style="">
+    </div>
+    <label class="" style="color: black; width: 100px; height: 44px;float: left; font-size: 20px; padding-left: 10px; padding-top: 5px;"> / 1</label>
+  </div>
+  <div style="width: 75%; height: 930px; float: left;">
+    <table style="" class="table" id='tblUser'>
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col" style="width: 400px;">Tên tài khoản</th>
+          <th scope="col">Ngày tạo</th>
+          <th scope="col">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+  </div>
+  </div>
+</body>
+<script type="text/javascript">
+
+  var listUser;
+
+  async function getUsersByTenTaiKhoan(){
+    deleteRows()
+    var table = document.getElementById('tblUser')
+    var tenTaiKhoan = document.getElementById('timKiem').value
+    if(tenTaiKhoan === "")
+      tenTaiKhoan = '-1'
+    try {
+      var res = await axios.put('/getusersby/'+tenTaiKhoan)
+      var users = res.data;
+      deleteRows()
+      users.forEach(function (user, index) {
+        var row = table.insertRow(1)
+        var cell0 = row.insertCell(0)
+        var cell1 = row.insertCell(1)
+        var cell2 = row.insertCell(2)
+        var cell3 = row.insertCell(3)
+
+        cell0.innerHTML = user.id
+        cell1.innerHTML = user.email
+        cell2.innerHTML = user.ngayTao
+        if (user.status === 'offline') {
+          cell3.innerHTML = '<input type="submit" style="width: 150px;" class="btn btn-secondary" value="Lock" onclick=lockUser("' + user.id + '")> <input type="submit" style="width: 150px;" class="btn btn-danger" value="Delete" onclick=deleteUser("' + user.id + '")>'
+        } else {
+          cell3.innerHTML = '<input type="submit" style="width: 150px;" class="btn btn-primary" value="Unlock" onclick=unlockUser("' + user.id + '")> <input type="submit" style="width: 150px;" class="btn btn-danger" value="Delete" onclick=deleteUser("' + user.id + '")>'
+        }
+      })
+    } catch (err) {
+    }
+
+  }
+
+  function lockUser(userID) {
+    var trangThai = 'locked';
+    if(confirm('Lock tài khoản '+userID+' ?')){
+      axios.put('/modifyuser', {
+        userID: userID,
+        status: trangThai
+      }).then(function (response) {
+      }).catch(function (error) {
+          alert('Có lỗi')
+      });
+      location.reload();
+
+    }
+  }
+
+  function unlockUser(userID) {
+    var trangThai = 'offline';
+    if(confirm('Unlock tài khoản '+userID+' ?')){
+      axios.put('/modifyuser', {
+        userID: userID,
+        status: trangThai
+      }).then(function (response) {
+      }).catch(function (error) {
+          alert('Có lỗi')
+      });
+      location.reload();
+    }
+  }
+
+
+  function deleteUser(userID) {
+    if (confirm("Xóa tài khoản " + userID + " ?")) {
+      axios.delete('/deleteuser/' + userID)
+        .then(function (response) {
+        }).catch(function (error) {
+          alert('Có lỗi')
+        }).then(function () {
+        });
+        location.reload();
+    }
+  }
+
+  function addUser() {
+    var tenTaiKhoan = document.getElementById('tenTaiKhoan').value;
+    var matKhau = document.getElementById('matKhau').value;
+    var nhapLaiMatKhau = document.getElementById('nhapLaiMatKhau').value;
+    var ngayTao = getCurrentDate();
+    var trangThai = 'offline';
+    var userID = getUserID(35);
+
+    if(tenTaiKhoan ===''){
+      alert("Chưa nhập tài khoản!");
+      returnToPreviousPage();
+      return false;
+    }else{
+      if(tenTaiKhoan.length < 5){
+        alert("Tài khoản tối thiểu 5 kí tự!");
+        returnToPreviousPage();
+        return false;
+      }
+    }
+
+    users.forEach(function (user, index) {
+      if(user.email === tenTaiKhoan){
+        alert("Tài khoản đã tồn tại!");
+        returnToPreviousPage();
+        return false;
+      }
+    })
+
+
+
+    if(matKhau === '' || nhapLaiMatKhau === ''){
+      alert("Chưa nhập mật khẩu!");
+      returnToPreviousPage();
+      return false;
+    }else{
+      if(matKhau.length < 6){
+         alert("Mật khẩu tối thiểu 6 kí tự!");
+          returnToPreviousPage();
+          return false;
+      }
+    }
+
+    if (matKhau != nhapLaiMatKhau) {
+      alert("Mật khẩu không khớp!");
+      returnToPreviousPage();
+      return false;
+    }
+
+    axios.post('/addUser', {
+      id: userID,
+      email: tenTaiKhoan,
+      password: matKhau,
+      ngayTao: ngayTao,
+      status: trangThai
+    }).then(function (res) {
+      
+    }).catch(function (err) {
+      console.log(err)
+    })
+    location.reload()
+    document.getElementById('tenTaiKhoan').value = '';
+    document.getElementById('matKhau').value = '';
+    document.getElementById('nhapLaiMatKhau').value = '';
+    return true;
+  }
+
+  function deleteRows(){
+    var table = document.getElementById('tblUser')
+    var rows = table.rows.length;
+    for (var i = rows - 1; i > 0; i--) {
+      table.deleteRow(i);
+    }
+  }
+
+  loadTable()
+  var users;
+  async function loadTable() {
+   var table = document.getElementById('tblUser')
+    try {
+      var res = await axios.get('/users')
+      users = res.data;
+      deleteRows()
+      users.forEach(function (user, index) {
+        var row = table.insertRow(1)
+        var cell0 = row.insertCell(0)
+        var cell1 = row.insertCell(1)
+        var cell2 = row.insertCell(2)
+        var cell3 = row.insertCell(3)
+
+        cell0.innerHTML = user.id
+        cell1.innerHTML = user.email
+        cell2.innerHTML = user.ngayTao
+        if (user.status === 'offline') {
+          cell3.innerHTML = '<input type="submit" style="width: 150px;" class="btn btn-secondary" value="Lock" onclick=lockUser("' + user.id + '")> <input type="submit" style="width: 150px;" class="btn btn-danger" value="Delete" onclick=deleteUser("' + user.id + '")>'
+        } else {
+          cell3.innerHTML = '<input type="submit" style="width: 150px;" class="btn btn-primary" value="Unlock" onclick=unlockUser("' + user.id + '")> <input type="submit" style="width: 150px;" class="btn btn-danger" value="Delete" onclick=deleteUser("' + user.id + '")>'
+        }
+      })
+    } catch (err) {
+    }
+  }
+
+  function getCurrentDate() {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+    today = dd + '/' + mm + '/' + yyyy;
+    return today;
+  }
+
+  function getUserID(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+
+</script>
+
+</html>

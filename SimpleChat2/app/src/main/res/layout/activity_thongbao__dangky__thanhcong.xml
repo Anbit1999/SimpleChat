@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#191919"
+    android:orientation="vertical"
+    tools:context=".Trangchu">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/img_icon_success"
+        android:layout_gravity="center"
+        android:layout_marginTop="15pt"
+        android:src="@drawable/icon_thanhcong"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bạn đã đăng ký thành công"
+        android:textColor="@color/colorWhite"
+        android:layout_marginTop="10pt"
+        android:textSize="10pt"
+        android:layout_gravity="center"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="92dp">
+
+        <Button
+            android:id="@+id/btn_dangky_quayve_trangchu"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10pt"
+            android:background="#00A0FB"
+            android:text="Quay về trang chủ"
+            android:textColor="#FFFFFF"
+            android:textSize="10pt"
+            android:textStyle="bold" />
+
+        <ProgressBar
+        android:id="@+id/progressbar_thongbao_thanhcong"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+    </FrameLayout>
+</LinearLayout>

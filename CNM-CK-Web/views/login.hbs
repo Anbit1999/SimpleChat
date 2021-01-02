@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel='stylesheet' type='text/css' media='screen.' href='main.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        .f {
+            font-size: 50px;
+        }
+
+        body {
+            /*background-image: url('https://backiee.com/static/wpdb/wallpapers/1920x1080/189041.jpg')*/
+            background-image: url('https://hxkjba.ch.files.1drv.com/y4myKZObgh-eqgKMukT5LYQlsNWklcJ-Ltd4jAY84vJ3trCKBoSqxJSxRxPz_SXQGfMzVv5LxAo_s7VF9fn7mjHZbN5AZ70Bcw5Sj_I7nSd1MCBQStlKq1y8SsTt2mD1wcOXoND8BiAItXp9_WxXD-BTXOoZLjClCKUomuS-0h53NcKReOhCMTBWQ9rIt-ykA4Hx0w3zg26mP-l15XcC04qCA');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <title>Login</title>
+</head>
+
+<body>
+
+    <div style="width: 100%; height: 1100px;">
+
+        <div>
+            <h1 style="color: white; font-size: 100px; text-align: center; width: 100%; padding-top: 300px;">
+                Simple Chat
+            </h1>
+        </div>
+
+        <div style="float: left; width: 700px; height: 200px; margin-left: 700px; padding: 10px;">
+            <form style="font-size: 20px;" onsubmit="event.preventDefault(); login();">
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label" style="color: white;">Username:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="username" style="" value="admin">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label" style="color: white;">Password:</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" id="password" style="" value="admin">
+                    </div>
+                </div>
+
+                <div class="form-group row" style="padding: 10px;">
+                    <input type="submit" class="btn btn-primary col-sm-12" value="Login"  />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+
+    function login() {
+        var username = document.getElementById('username').value
+        var password = document.getElementById('password').value
+        if (username === '' || password === '') {
+            alert("Vui lòng nhập đủ thông tin");
+            returnToPreviousPage();
+            return false;
+        }
+
+        if (username === 'admin' && password === 'admin') {
+            window.location.href = "http://localhost:8000/trangchu";
+        }else{
+            alert("Sai thông tin đăng nhập");
+            returnToPreviousPage();
+            return false;
+        }
+        return true;
+    }
+
+
+    
+
+</script>
+
+</html>

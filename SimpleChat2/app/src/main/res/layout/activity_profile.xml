@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.MoreFragment"
+    android:background="@color/background_chat">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thông tin cá nhân"
+            android:textSize="18pt"
+            android:textAlignment="center"
+            android:id="@+id/tv_tieude"
+            android:textColor="@color/colorWhite"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/profile_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/icon_thanhcong"
+            android:layout_below="@+id/tv_tieude"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:layout_below="@+id/profile_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:textSize="15pt"
+            android:id="@+id/tv_username_profile"
+            android:textColor="@color/colorWhite"/>
+
+        <Button
+            android:id="@+id/btn_addfriend"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_radius"
+            android:text="Thêm bạn"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:layout_below="@+id/tv_username_profile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25pt"
+            android:visibility="gone"
+            />
+        <Button
+            android:id="@+id/btn_acceptfriend"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_radius_acceptfriend"
+            android:text="Chấp nhận"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:layout_below="@+id/tv_username_profile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25pt"/>
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_cancelfriend"
+            android:text="Hủy kết bạn"
+            android:textStyle="bold"
+            android:layout_below="@+id/tv_username_profile"
+            android:background="@drawable/button_radius_cancelfriend"
+            android:textColor="@color/colorWhite"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25pt"
+            />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_sendmessage"
+            android:text="tin nhắn"
+            android:textStyle="bold"
+            android:background="@drawable/button_radius"
+            android:textColor="@color/colorWhite"
+            android:layout_below="@+id/tv_username_profile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25pt"
+            />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_sendrequest"
+            android:text="Gửi yêu cầu"
+            android:textStyle="bold"
+            android:background="@drawable/button_radius"
+            android:textColor="@color/colorWhite"
+            android:layout_below="@+id/btn_sendmessage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15pt"
+            />
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_cancelrequest"
+            android:text="Hủy kết bạn"
+            android:textStyle="bold"
+            android:background="@drawable/button_radius_cancelfriend"
+            android:textColor="@color/colorWhite"
+            android:layout_below="@+id/btn_sendrequest"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5pt"
+            android:visibility="gone"
+            />
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_acceptrequest"
+            android:text="Chấp nhận"
+            android:textStyle="bold"
+            android:background="@drawable/btn_radius_acceptfriend"
+            android:textColor="@color/colorWhite"
+            android:layout_below="@+id/btn_sendmessage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15pt"
+            android:visibility="gone"
+            />
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_refuserequest"
+            android:text="Từ chối kết bạn"
+            android:textStyle="bold"
+            android:background="@drawable/button_radius_cancelfriend"
+            android:textColor="@color/colorWhite"
+            android:layout_below="@+id/btn_acceptrequest"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5pt"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
+</RelativeLayout>

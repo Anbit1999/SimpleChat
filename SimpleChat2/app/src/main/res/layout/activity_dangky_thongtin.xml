@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#191919"
+    android:orientation="vertical"
+    tools:context=".ActivityDangky">
+
+    <include android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout"/>
+
+    <EditText
+        android:id="@+id/et_hoten"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20pt"
+        android:background="#00A0FB"
+        android:hint="Nhập họ tên"
+        android:textColor="#FFFFFF"
+        android:textSize="10pt" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10pt"
+        android:background="#00A0FB"
+        android:hint="Nhập mật khẩu"
+        android:textColor="#FFFFFF"
+        android:textSize="10pt"
+        android:inputType="textPassword"/>
+    <EditText
+        android:id="@+id/et_repassword"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10pt"
+        android:background="#00A0FB"
+        android:hint="Nhập lại mật khẩu"
+        android:textColor="#FFFFFF"
+        android:textSize="10pt"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/btn_dangky_sdt_xacnhan"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10pt"
+        android:background="#00A0FB"
+        android:text="Xác nhận"
+        android:textColor="#FFFFFF"
+        android:textSize="10pt"
+        android:textStyle="bold"/>
+</LinearLayout>

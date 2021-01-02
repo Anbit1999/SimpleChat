@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#191919"
+    android:orientation="vertical"
+    tools:context=".ActivityDangky">
+
+    <include android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_send"
+        android:src="@drawable/send"
+        android:layout_gravity="center"
+        android:layout_marginTop="10pt"/>
+
+
+    <EditText
+        android:id="@+id/et_nhapten"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Nhập tên"
+        android:textSize="10pt"
+        android:layout_marginLeft="5pt"
+        android:background="#2B2B2B"
+        android:textColor="#FFFFFF"
+        android:inputType="textPersonName"
+        android:layout_gravity="center"
+        android:layout_marginTop="10pt"/>
+
+        <EditText
+            android:id="@+id/et_nhapemail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Nhập địa chỉ Email"
+            android:textSize="10pt"
+            android:layout_marginLeft="5pt"
+            android:background="#2B2B2B"
+            android:textColor="#FFFFFF"
+            android:inputType="textEmailAddress"
+            android:layout_gravity="center"
+            android:layout_marginTop="10pt"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_light"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:id="@+id/tv_dangky_checkemail"/>
+
+    <EditText
+        android:id="@+id/et_nhappassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Nhập nhập khẩu"
+        android:textSize="10pt"
+        android:layout_marginLeft="5pt"
+        android:background="#2B2B2B"
+        android:textColor="#FFFFFF"
+        android:inputType="textPassword"
+        android:layout_gravity="center"
+        android:layout_marginTop="10pt"
+        />
+
+    <EditText
+        android:id="@+id/et_nhaprepassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Nhập lại mật khẩu"
+        android:textSize="10pt"
+        android:layout_marginLeft="5pt"
+        android:background="#2B2B2B"
+        android:textColor="#FFFFFF"
+        android:inputType="textPassword"
+        android:layout_gravity="center"
+        android:layout_marginTop="10pt"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="92dp">
+
+        <Button
+            android:id="@+id/btn_dangky_email_xacnhan"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10pt"
+            android:background="#00A0FB"
+            android:text="Xác nhận"
+            android:textColor="#FFFFFF"
+            android:textSize="10pt"
+            android:textStyle="bold"/>
+
+        <ProgressBar
+            android:id="@+id/progressbar_email"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</LinearLayout>

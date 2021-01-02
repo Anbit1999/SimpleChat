@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#191919"
+    android:orientation="vertical"
+    tools:context=".Trangchu">
+
+    <TextView
+        android:id="@+id/tv_tenapp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15pt"
+        android:background="#191919"
+        android:text="SimpleChat"
+        android:textAlignment="center"
+        android:textSize="25pt"
+        android:textColor="#00A0FB"/>
+
+    <Button
+        android:id="@+id/btn_dangnhap"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30pt"
+        android:background="#00A0FB"
+        android:text="Đăng nhập"
+        android:textColor="#FFFFFF"
+        android:textSize="12pt" />
+
+    <Button
+        android:id="@+id/btn_dangky"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10pt"
+        android:background="#2B2B2B"
+        android:text="Đăng ký"
+        android:textColor="#FFFFFF"
+        android:textSize="12pt"
+        />
+
+</LinearLayout>
